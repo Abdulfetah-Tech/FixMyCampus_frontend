@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { getApiErrorMessage } from 'src/app/core/utils/api-error-message';
 
 @Component({
   selector: 'app-login',
@@ -61,12 +62,7 @@ export class LoginComponent implements OnInit {
       },
       error: (err) => {
         this.submitting = false;
-        if (err.status === 401) {
-          this.errorMessage = 'Invalid email or password.';
-          return;
-        }
-
-        this.errorMessage = 'Unable to sign in. Please try again.';
+        this.errorMessage = getApiErrorMessage(err, 'Unable to sign in. Please check your credentials and account approval status.');
       }
     });
   }

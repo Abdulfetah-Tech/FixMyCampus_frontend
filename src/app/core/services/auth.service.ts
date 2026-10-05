@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, catchError, finalize, map, of, shareReplay, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, finalize, of, shareReplay, tap, throwError } from 'rxjs';
 import { LoginRequest, RegisterRequest, UserResponse } from '../../shared/models/ticket.model';
 import { environment } from '../../../environments/environment';
 

@@ -45,7 +45,7 @@
           <span>Rejection reason</span>
           <input [(ngModel)]="rejectionReasons[user.id]" maxlength="500" placeholder="Required if rejecting">
         </label>
-        <button class="reject" type="button" (click)="reject(user)" [disabled]="busyUserId === user.id || (rejectionReasons[user.id]?.trim().length || 0) < 3">
+        <button class="reject" type="button" (click)="reject(user)" [disabled]="busyUserId === user.id || !canReject(user.id)">
           Reject
         </button>
       </div>

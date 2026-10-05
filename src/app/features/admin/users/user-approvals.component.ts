@@ -74,4 +74,8 @@ export class UserApprovalsComponent implements OnInit {
       }
     });
   }
+
+  canReject(userId: string): boolean {
+    return (this.rejectionReasons[userId] ?? '').trim().length >= 3;
+  }
 }
